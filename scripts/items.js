@@ -62,7 +62,7 @@ function SearchItems() {
 */
 function ClosePreviosItem() {
 
-  if ($('#ItemTitleContainer').find(".Open").length) {
+  if ($('#ItemTitlesContainer').find(".Open").length) {
 
     $('.ItemSelection').removeClass('MediumFont');
     $('.ItemSelection').removeClass('Open');
