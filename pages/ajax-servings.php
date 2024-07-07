@@ -1,7 +1,5 @@
 <?php
-include 'app-config.php';
-include 'db-conn.php';
-include 'db-items.php';
+include 'header.php';
 
 if(isset($_GET['id'])) {
     
@@ -14,6 +12,7 @@ if(isset($_GET['id'])) {
         $ArrayItems[] = $row;
     }
     
+    header('Content-Type: application/json');
     echo json_encode($ArrayItems);
 
 } else {
@@ -22,5 +21,5 @@ if(isset($_GET['id'])) {
 
 }
 
-include 'db-conn-close.php';
+include 'footer.php';
 ?>

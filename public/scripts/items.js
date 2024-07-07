@@ -98,7 +98,7 @@ function OpenItem(ItemID) {
   $(ItemContainer).insertAfter(SelectionID);
   $(SelectionID).addClass('MediumFont');
   $(SelectionID).addClass('Open');
-  $(SelectionID).find(".ItemIcon").attr("src", "style/icons/down.svg");
+  $(SelectionID).find(".ItemIcon").attr("src", "../public/images/down.svg");
 
   $('#ItemContainer').css("display", "block");
   $('#SliderSize').val(100);
@@ -195,7 +195,7 @@ function GetItemData(ItemID, callback) {
     }
   };
 
-  xmlhttp.open("GET", "include/ajax-data-item.php?id=" + ItemID, true);
+  xmlhttp.open("GET", "../pages/ajax-food.php?id=" + ItemID, true);
   xmlhttp.send();
 }
 
@@ -220,7 +220,7 @@ function GetServingData(ItemID, callback) {
     }
   };
 
-  xmlhttp.open("GET","include/ajax-data-servings.php?id=" + ItemID, true);
+  xmlhttp.open("GET","../pages/ajax-servings.php?id=" + ItemID, true);
   xmlhttp.send();
 }
 

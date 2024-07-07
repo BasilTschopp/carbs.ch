@@ -1,8 +1,5 @@
-<?php
-include 'include/app-config.php';
-include 'include/db-conn.php';
-include 'include/db-info.php';
-include 'include/header.php';
+<?php 
+include 'header.php';
 
 $dbInfo = new dbInfo();
 $ResultInfoText = $dbInfo->dbInfoText();
@@ -20,7 +17,5 @@ while ($ArrayInfoText = mysqli_fetch_array($ResultInfoText)) {
     
 echo "</article>";
 
-include 'include/db-conn-close.php'; 
-include 'include/footer.php';
-
+include 'footer.php';
 ?>

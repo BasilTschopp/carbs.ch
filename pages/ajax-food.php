@@ -1,7 +1,5 @@
 <?php
-include 'app-config.php';
-include 'db-conn.php';
-include 'db-items.php';
+include 'header.php';
 
 if(isset($_GET['id'])) {
 
@@ -14,11 +12,12 @@ if(isset($_GET['id'])) {
         $ArrayItems[] = $row;
     }
 
+    header('Content-Type: application/json');
     echo json_encode($ArrayItems);
     
 } else {
     echo "ID parameter is not set in the URL";
 }
 
-include 'db-conn-close.php';
+include 'footer.php';
 ?>
