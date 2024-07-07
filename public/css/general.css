@@ -8,6 +8,7 @@
   --ColorDarkGrey: #808080;
   --ColorLightGrey: #F1F1F1;
   --ColorLightBlue: #bceffc;
+  --ColorYonderBlue: #5072A7;
   --FontLight: 'Light', Arial, Helvetica, sans-serif;
   --FontMedium: 'Medium', Arial, Helvetica, sans-serif;
   --FontSizeBig: '21px';
@@ -76,6 +77,10 @@ p {
 a {
   color: var(--ColorBlack);
   text-decoration: none;
+}
+
+.BlueLink {
+  color: var(--ColorYonderBlue);
 }
 
 .FixedHeaderContainer {

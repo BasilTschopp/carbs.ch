@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 21. Jun 2024 um 19:40
+-- Erstellungszeit: 07. Jul 2024 um 23:04
 -- Server-Version: 10.6.14-MariaDB-cll-lve-log
--- PHP-Version: 8.1.28
+-- PHP-Version: 8.1.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,9 +41,11 @@ CREATE TABLE `info_text` (
 
 INSERT INTO `info_text` (`ID`, `Title`, `Text`, `OrderNumber`, `Inactive`) VALUES
 (1, 'Info', 'Carbs.ch ist eine nichtkommerzielle Webapplikation. Diese bietet nicht nur Angaben zu Kohlenhydraten und weiteren Nährwerten pro 100 g bzw. 100 ml, sondern ermöglicht eine direkte Berechnung anhand gängiger Portionsgrössen. Zudem können Typ-1-Diabetiker den Faktor angeben, um das Bolus-Insulin zu berechnen.', 10, 0),
-(2, 'Feel Free', 'Das Projekt wird nicht weiterentwicklet. Der Code und die Datenbank stehen auf \r\n<a href=\"https://github.com/BasilTschopp/carbs.ch\" class=\"RegularFont BlueFont\">Github</a> frei zur Verfügung, falls dies jemand für eigene Zwecke nutzen möchte.', 20, 0),
-(3, 'Ausschluss', 'Alle Angaben wurden nach bestem Wissen erstellt, es kann jedoch kein Gewähr für Vollständigkeit und Richtigkeit übernommen werden. Zudem sind die Nährwertangaben und die Portionsgrössen von der Zubereitung abhängig.', 30, 0),
-(4, 'Kontakt', 'Anfragen können gerne an <a href=\"mailto: info@carbs.ch\" class=\"RegularFont BlueFont\">info@carbs.ch</a> gesendet werden.', 40, 0);
+(2, 'Feel Free', 'Der Programmcode und die Datenbank stehen auf \r\n<a href=\"https://github.com/BasilTschopp/carbs.ch\" class=\"BlueFont\">Github</a> frei zur Verfügung, falls dies jemand für eigene Zwecke nutzen möchte.', 39, 0),
+(3, 'Ausschluss', 'Alle Angaben wurden nach bestem Wissen erstellt, es kann jedoch kein Gewähr für Vollständigkeit und Richtigkeit übernommen werden. Zudem sind die Nährwertangaben und die Portionsgrössen von der Zubereitung abhängig.', 38, 0),
+(4, 'Kontakt', 'Anfragen können gerne an <a href=\"mailto: info@carbs.ch\" class=\"BlueFont\">info@carbs.ch</a> gesendet werden.', 40, 0),
+(5, 'Quellenangaben', 'Die Nährwertangaben für allgemeine, nicht herstellerspezifische Lebensmittel stammen von der\r\n<a href=\"https://naehrwertdaten.ch/de/\" class=\"BlueFont\">Schweizer Nährwertdatenbank</a>. Herstellerspezifische Lebensmittel gemäss der Webseite des jeweiligen Herstellers.', 30, 0),
+(6, 'Berechnung', 'Die Bolus-Berechnung erfolgt nicht nach Broteinheiten zu 12 Gramm, sondern nach Kohlenhydrateinheiten zu 10 Gramm, die mit dem Faktor multipliziert werden.', 31, 0);
 
 -- --------------------------------------------------------
 
@@ -472,7 +474,8 @@ INSERT INTO `items_food` (`ID`, `ItemName`, `Carbs`, `Sugar`, `Fibers`, `Fat`, `
 (402, 'McDonalds Frappé Vanille', 21.0, 20.0, 0.1, 2.0, 1, '150,151', 0),
 (403, 'McDonalds Frappé Erdbeer', 22.0, 20.0, 0.1, 2.0, 1, '150,151', 0),
 (404, 'McDonalds Frappé Banane', 22.0, 20.0, 0.1, 2.0, 1, '150,151', 0),
-(405, 'McDonalds Apfeltasche', 35.0, 11.0, 2.0, 13.0, 1, '231', 0);
+(405, 'McDonalds Apfeltasche', 35.0, 11.0, 2.0, 13.0, 1, '231', 0),
+(406, 'Starbucks Latte Macchiato - lactose free milk', 2.0, 2.0, 0.0, 1.1, 2, '247,248,249,250', 1);
 
 -- --------------------------------------------------------
 
@@ -736,7 +739,11 @@ INSERT INTO `items_servings` (`ID`, `ServingName`, `ServingSize`) VALUES
 (243, 'Eine Portion', 170),
 (244, 'Eine Scheibe', 150),
 (245, '1/2 Pariserbrot', 150),
-(246, '1/4 Pariserbrot', 75);
+(246, '1/4 Pariserbrot', 75),
+(247, 'Short', 237),
+(248, 'Tall', 354),
+(249, 'Grande', 473),
+(250, 'Venti', 591);
 
 -- --------------------------------------------------------
 
@@ -819,19 +826,19 @@ ALTER TABLE `items_units`
 -- AUTO_INCREMENT für Tabelle `info_text`
 --
 ALTER TABLE `info_text`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT für Tabelle `items_food`
 --
 ALTER TABLE `items_food`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=406;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=407;
 
 --
 -- AUTO_INCREMENT für Tabelle `items_servings`
 --
 ALTER TABLE `items_servings`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
 
 --
 -- AUTO_INCREMENT für Tabelle `items_statuses`
