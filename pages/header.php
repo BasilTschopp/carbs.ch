@@ -32,7 +32,7 @@ if (strpos($url, 'ajax') === false) {
         <?php
         // Display back button for info page
         if (strpos($url, 'info.php') !== false) {
-            echo "<a href='index.php'><img src='../public/images/back.svg' class='NavigationIcon'></a>";
+            echo "<a href='../index.php'><img src='../public/images/back.svg' class='NavigationIcon'></a>";
         // Display search field and info icon for food page
         } elseif (strpos($url, 'food.php') !== false) {
             echo "<input type='text' id='ItemSearchInput' placeholder='Suchen' user-scalable='no'>";
