@@ -1,5 +1,7 @@
 <?php
-include 'header.php';
+include '../configuration.php';
+include '../classes/db-connection.php';
+include '../classes/food.php';
 
 if(isset($_GET['id'])) {
 

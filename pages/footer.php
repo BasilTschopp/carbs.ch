@@ -1,4 +1,5 @@
 <?php 
+$url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 // Close database connection if open
 if (isset($Connection)) {

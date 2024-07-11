@@ -1,21 +1,11 @@
 <?php
-$url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-
-// Load configuration for each page
 include '../configuration.php';
-
-// Load classes based on page type
-if (strpos($url, 'info.php') !== false) {
-    include '../classes/db-connection.php';
-    include '../classes/info.php';
-} else if (strpos($url, 'food.php') !== false || strpos($url, 'ajax') !== false  ) {
-    include '../classes/db-connection.php';
-    include '../classes/food.php';
-}
-
-// Output head and body only if not an ajax page
-if (strpos($url, 'ajax') === false) {
+include '../classes/db-connection.php';
+include '../classes/info.php';
+include '../classes/food.php';
+$url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
+
 <!DOCTYPE html>
 <html lang='de'>
 <head>
@@ -40,4 +30,3 @@ if (strpos($url, 'ajax') === false) {
         }
         ?>
     </div>
-<?php } ?>
