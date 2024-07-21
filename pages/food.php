@@ -17,7 +17,7 @@
             $SelectionID   = 'Selection' . $ItemID;
 
             echo "<div id='".$SelectionID."' class='ItemSelection' onclick='OpenItem(".$ItemID.")'>";
-            echo "<img src='../public/images/right.svg' alt='Item' class='ItemIcon'>";
+            echo "<img src='../public/images/right.svg' title='Open' alt='Item' class='ItemIcon'>";
             echo "<div class='ItemName'>".$ItemName."</div>";
             echo "<div class='ItemCountServings'>".$CountServings."</div>";
             echo "</div>";
