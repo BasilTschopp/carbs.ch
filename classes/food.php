@@ -32,7 +32,7 @@ class dbFood {
     }
 
     public function dbItem($ItemID) {
-        // Prepare the SQL query with placeholders
+
         $Query = "
             SELECT i.*, 
                    u.UnitName, 
@@ -45,27 +45,23 @@ class dbFood {
             WHERE i.ID = ? 
             GROUP BY i.ID";
         
-        // Prepare the statement
+
         if ($stmt = $this->connection->prepare($Query)) {
-            // Bind the $ItemID parameter to the placeholder
+
             $stmt->bind_param("i", $ItemID);
-    
-            // Execute the statement
             $stmt->execute();
-    
-            // Get the result
             $Result = $stmt->get_result();
     
-            // Return the result
             return $Result;
+
         } else {
-            // Handle query preparation error
+
             return false;
         }
     }
 
     public function dbServings($ItemID) {
-        // Prepare the SQL query with placeholders
+
         $Query = "
             SELECT s.ID, s.ServingName, s.ServingSize, u.UnitName
             FROM items_food i
@@ -74,21 +70,18 @@ class dbFood {
             WHERE i.ID = ?
             ORDER BY s.ServingSize ASC";
     
-        // Prepare the statement
+
         if ($stmt = $this->connection->prepare($Query)) {
-            // Bind the $ItemID parameter to the placeholder
+
             $stmt->bind_param("i", $ItemID);
-    
-            // Execute the statement
             $stmt->execute();
-    
-            // Get the result
             $Result = $stmt->get_result();
     
-            // Return the result
+
             return $Result;
+            
         } else {
-            // Handle query preparation error
+
             return false;
         }
     }
