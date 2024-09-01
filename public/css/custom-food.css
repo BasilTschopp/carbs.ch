@@ -1,0 +1,166 @@
+#ItemSearchInput {
+    float: left;
+    width: calc(100% - 65px);
+    margin-left: 10px;
+    padding: 10px 10px 10px 33px;
+    border: 1px solid var(--ColorGrey);
+    background: url(../icons/search.svg) no-repeat scroll 6px 6px;
+    background-size: 20px 20px;
+    background-color: var(--ColorWhite);
+  }
+    
+  ::placeholder {
+    color: var(--ColorBlack);
+    font-family: var(--FontLight);
+    letter-spacing: 1px;
+    opacity: 1;
+  }
+    
+  ::-ms-input-placeholder { 
+    color: var(--ColorBlack);
+    font-family: var(--FontLight);
+    letter-spacing: 1px;
+  }
+    
+  #ItemTitlesContainer {
+    height: calc(100% - 50px - 40px - 80px);
+    width: 100%;
+    font-family: var(--FontLight);
+    background-color: var(--ColorBeige);
+    margin-top: 5px;
+  }
+    
+  .ItemSelection {
+    height: 16px;
+    border-bottom: 0.5px solid var(--ColorGrey);
+    padding: 10px;
+  }
+    
+  .ItemIcon {
+      float: left;
+      height: 18px;
+      width: 18px;
+      padding-right: 6px;
+    }
+    
+    .ItemName {
+      float: left;
+      width: calc(100 - 30px);
+    }
+    
+    .ItemCountServings {
+      float: right;
+      height: 16px;
+      width: 16px;
+      text-align: center;
+      padding: 1px 1px 3px 1px;
+      border-radius: 50%;
+      background-color: var(--ColorLightGrey);
+    }
+    
+    #ItemContainer {
+      display: none;
+    }
+    
+    #ItemContainerTop {
+      display: flex;
+      height: 110px;
+      width: 100%;
+      background-color: var(--ColorLightGrey);
+      padding-bottom: 15px;
+    }
+    
+    #ItemContainerBottom {
+      height: 190px;
+      width: 100%;
+      background-color: var(--ColorLightGrey);
+    }
+    
+    #ItemBoxFirst {
+      flex-grow: 0;
+      width: 110px;
+      padding-left: 20px;
+      padding-right: 5px;
+    }
+    
+    #ItemBoxSecond {
+      flex-grow: 0;
+      width: 75px;
+      text-align: right;
+      padding-top: 21px;
+    }
+    
+    #ItemBoxThird {
+      flex-grow: 1;
+      text-align: left;
+      padding-left: 30px;
+    }
+    
+    #ItemBoxFirst p,
+    #ItemBoxSecond p,
+    #ItemBoxThird p {
+      line-height: 0.5;
+    }
+    
+  .ServingLink {
+      color: var(--ColorBlue);
+      cursor: pointer;  
+    }
+    
+  .ServingSelected {
+      color: var(--ColorBlack);
+    }
+  .SliderContainerLeft {
+      float: left;
+      height: 60px;
+      width: 50px;
+      margin: 0;
+      line-height: 0.7;
+      padding-left: 20px;
+  }
+    
+  .SliderContainerRight {
+      float: right;
+      height: 36px;
+      width: calc(100% - 70px - 20px);
+      padding-top: 24px;
+      padding-right: 20px;
+  }
+    
+  .Slider {
+      -webkit-appearance: none;
+      height: 8px;
+      width: 100%;
+      background: #ddd;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity .2s;
+    }
+    
+    .SliderValue {
+      margin-top: 0px;
+    }
+    
+    .Slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: var(--ColorBlue);
+      cursor: pointer;
+    }
+    
+    .Slider::-moz-range-thumb {
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: var(--ColorBlue);
+      cursor: pointer;
+    }
+    
+    .ItemSliderValueContainer,
+    .ItemSliderFactorContainer,
+    .ItemSliderBolusContainer {
+      text-align: center;
+    }
