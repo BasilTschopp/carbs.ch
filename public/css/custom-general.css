@@ -41,20 +41,28 @@
     background-color: var(--ColorBeige);
   }
 
-.NavContainer {
-  display: flex;
-  justify-content: space-between;
-  width: calc(100%-20px);
-  height: 40px;
-  margin: 0 10px 0 10px;
-}
+  nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: var(--MaxWidth);
+    z-index: 1000;
+  }
+
+  .NavContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    max-width: var(--MaxWidth);
+    background-color: var(--ColorBeige);
+    border-top: 1px solid var(--ColorLightGrey);
+  }
 
 .NavBox {
-  flex: 1;
-  margin: 0 10px;
-  text-align: center;
-  font-size: 14px;
-  padding-top: 10px;
+    width: 33%;
+    text-align: center;
 }
   
   h2 {
@@ -142,7 +150,6 @@
   .PaddingTopMedium {
     padding-top: 10px;
   }
-  
   
   .Padding {
     padding: 10px;

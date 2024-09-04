@@ -1,6 +1,8 @@
 @include('includes.header')
 
-<input type='text' id='ItemSearchInput' placeholder='Suchen' user-scalable='no'>
+<div class='FixedHeaderContainer'>
+    <input type='text' id='ItemSearchInput' placeholder='Suchen' user-scalable='no'>
+</div>
 
 <article>
 
@@ -10,7 +12,7 @@
         @foreach($Items as $Item)
 
             <div id='Selection{{ $Item->id }}' class='ItemSelection' onclick='OpenItem({{ $Item->id }})'>
-            <img src="{{ asset('icons/right.svg')}}" title='Open' alt='Item' class='ItemIcon'>
+            <img src="{{ asset('icons/right.svg')}}" class='ItemIcon' title='Open' alt='Item'>
             <div class='ItemName'>{{ $Item->ItemName }}</div>
             <div class='ItemCountServings'>{{ $Item->ServingCount }}</div>
             </div>
@@ -22,7 +24,7 @@
    <!-- Single item container that is moved under the corresponding title -->
    <div id='ItemContainer'>
 
-        <!-- xy -->
+        <!-- Helper fields for the calculation with Javascript -->
         <div id='ItemID' style='display: none;'></div>
         <div id='ItemCarbs' style='display: none;'></div>
 

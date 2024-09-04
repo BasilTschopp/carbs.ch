@@ -14,11 +14,11 @@ return new class extends Migration {
             $table->string('ItemName');
             $table->integer('Carbs');
             $table->integer('Sugar');
-            $table->integer('Fibre');
+            $table->integer('Fibres');
             $table->integer('Fat');
-            $table->integer('UnitID');
-            $table->string('ServingID');
-            $table->integer('Inactive');
+            $table->string('Unit');
+            $table->string('ServingIDs');
+            $table->integer('Active');
         });
 
         $this->ImportFoodItemsCSV();
@@ -30,14 +30,6 @@ return new class extends Migration {
         });
 
         $this->ImportFoodServingsCSV();
-
-        Schema::create('food_units', function (Blueprint $table) {
-            $table->id();
-            $table->string('UnitName');
-        });
-
-        $this->ImportFoodUnitsCSV();
-
 
     }
 
@@ -56,11 +48,11 @@ return new class extends Migration {
                     'ItemName' => $data[2],
                     'Carbs' => $data[3],
                     'Sugar' => $data[4],
-                    'Fibre' => $data[5],
+                    'Fibres' => $data[5],
                     'Fat' => $data[6],
-                    'UnitID' => $data[7],
-                    'ServingID' => $data[8],
-                    'Inactive' => $data[9],
+                    'Unit' => $data[7],
+                    'ServingIDs' => $data[8],
+                    'Active' => $data[9],
                 ]);
             }
 
@@ -88,32 +80,11 @@ return new class extends Migration {
         }
     }
 
-    private function ImportFoodUnitsCSV(): void {
-
-        $csvFilePath = base_path('database/data/food_units.csv');
-
-        if (($handle = fopen($csvFilePath, 'r')) !== false) {
-
-            fgetcsv($handle); //skip the first line
-
-            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
-    
-                DB::table('food_units')->insert([
-                    'UnitName' => $data[1],
-                ]);
-            }
-
-            fclose($handle);
-        }
-    }
-
-
 
     public function down(): void {
 
         Schema::dropIfExists('food_items');
         Schema::dropIfExists('food_servings');
-        Schema::dropIfExists('food_units');
         
     }
 

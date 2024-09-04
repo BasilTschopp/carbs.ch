@@ -1,0 +1,2 @@
+
+{!! $Servings->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) !!}

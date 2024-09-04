@@ -10,11 +10,3 @@
         <script src="{{ asset('js/jquery-3.7.1.min') }}"></script>
         <script src="{{ asset('js/items.js') }}"></script>
     </head>
-
-    <nav>
-        <div class="NavContainer">
-            <div class="NavBox">INFO</div>
-            <div class="NavBox">CARBS</div>
-            <div class="NavBox">LOGIN</div>
-        </div>
-    </nav>

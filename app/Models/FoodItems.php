@@ -9,4 +9,10 @@ class FoodItems extends Model {
 
     protected $FoodItems = 'food_items';
 
+    public static function getActiveItems() {
+
+        return self::where('active', 1)->get();
+
+    }
+
 }
