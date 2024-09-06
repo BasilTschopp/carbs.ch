@@ -1,12 +1,6 @@
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews
-    </IfModule>
-
     RewriteEngine On
 
-    # Verhindere den direkten Zugriff auf den Ordner und leite zur index.php um
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    # Redirect all requests to the 'public' directory
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
