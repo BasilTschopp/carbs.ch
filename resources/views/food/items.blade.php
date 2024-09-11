@@ -1,7 +1,12 @@
 @include('includes.header')
 
-<div class='FixedHeaderContainer'>
-    <input type='text' id='ItemSearchInput' placeholder='Suchen' user-scalable='no'>
+<div class='ItemCategoryContainer'>
+    <p class='ItemCategoryTitle'> {{ $CategoryName }} </p>
+
+    <a href="{{ url('getCategories') }}">
+        <img src="{{ asset('icons/back.svg')}}" class='ItemBack' alt='Back'>
+    </a>
+
 </div>
 
 <article>

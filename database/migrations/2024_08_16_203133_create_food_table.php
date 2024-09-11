@@ -14,14 +14,12 @@ return new class extends Migration {
             $table->string('ItemName');
             $table->integer('Carbs');
             $table->integer('Sugar');
-            $table->integer('Fibres');
+            $table->integer('Fibers');
             $table->integer('Fat');
             $table->string('Unit');
             $table->string('ServingIDs');
             $table->integer('Active');
         });
-
-        $this->ImportFoodItemsCSV();
 
         Schema::create('food_servings', function (Blueprint $table) {
             $table->id();
@@ -29,7 +27,24 @@ return new class extends Migration {
             $table->integer('ServingSize');
         });
 
+        Schema::create('food_parent_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('ParentCategoryName');
+            $table->integer('Order');
+            $table->integer('Active');
+        });
+
+        Schema::create('food_categories', function (Blueprint $table) {
+            $table->id();
+            $table->integer('ParentID');
+            $table->string('CategoryName');
+            $table->integer('Order');
+            $table->integer('Active');
+        });
+
+        $this->ImportFoodItemsCSV();
         $this->ImportFoodServingsCSV();
+        $this->ImportFoodCategoriesCSV();
 
     }
 
@@ -48,7 +63,7 @@ return new class extends Migration {
                     'ItemName' => $data[2],
                     'Carbs' => $data[3],
                     'Sugar' => $data[4],
-                    'Fibres' => $data[5],
+                    'Fibers' => $data[5],
                     'Fat' => $data[6],
                     'Unit' => $data[7],
                     'ServingIDs' => $data[8],
@@ -80,11 +95,32 @@ return new class extends Migration {
         }
     }
 
+    private function ImportFoodCategoriesCSV(): void {
+
+        $csvFilePath = base_path('database/data/food_categories.csv');
+
+        if (($handle = fopen($csvFilePath, 'r')) !== false) {
+
+            fgetcsv($handle); //skip the first line
+
+            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+    
+                DB::table('food_categories')->insert([
+                    'ServingName' => $data[1],
+                    'ServingSize' => $data[2],
+                ]);
+            }
+
+            fclose($handle);
+        }
+    }
 
     public function down(): void {
 
         Schema::dropIfExists('food_items');
         Schema::dropIfExists('food_servings');
+        Schema::dropIfExists('food_parent_categories');
+        Schema::dropIfExists('food_categories');
         
     }
 
