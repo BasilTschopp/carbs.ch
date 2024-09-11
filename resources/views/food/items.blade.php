@@ -4,7 +4,7 @@
     <p class='ItemCategoryTitle'> {{ $CategoryName }} </p>
 
     <a href="{{ url('getCategories') }}">
-        <img src="{{ asset('icons/back.svg')}}" class='ItemBack' alt='Back'>
+        <img src="{{ asset('icons/back.svg')}}" class='ItemBackButton' alt='Back'>
     </a>
 
 </div>

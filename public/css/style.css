@@ -128,22 +128,79 @@ nav {
   text-align: center;
 }
 
+/* --- ANIMATIONS --- */
+
+@keyframes Rise {
+  0% {
+    bottom: -100px;
+    transform: scale(0.7);
+  }
+  100% {
+    bottom: 300px;
+      transform: scale(1);
+  }
+}
+
+@keyframes SlideIn {
+  0% {
+    transform: translateY(0) translateX(100px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes SlideUp {
+  0% {
+    transform: translateY(30px) translateX(0);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes SlideDown {
+  0% {
+    transform: translateY(-30px) translateX(0);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes Rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
 /* --- INFO --- */
 
 #InfoContainer {
   padding: 10px;
 }
 
+.InfoBox {
+
+}
+
 .InfoTitle {
-  font-weight: bold;
+  font-family: 'Medium';
+  font-size: 16px;
   line-height: 1.1;
   margin-bottom: -10px;
   padding: 0 10px 0 10px;
+  animation: SlideDown 0.7s ease forwards;
 }
 
 .InfoText {
   padding-top: 0;
   padding: 0 10px 0 10px;
+  animation: SlideUp 0.7s ease forwards;
 }  
 
 /* --- FOOD CATEGORY --- */
@@ -159,6 +216,7 @@ nav {
   font-size: 16px;
   padding-top: 20px;
   cursor: pointer;
+  animation: SlideIn 0.7s ease forwards;
 }
 
 .CategoryTitle {
@@ -172,6 +230,7 @@ nav {
   background-color: var(--ColorLightGrey);
   border: 1px solid var(--ColorMediumGrey);
   border-radius: 5px;
+  animation: Rise 0.7s ease-in-out forwards;
 }
 
 /* --- FOOD ITEM TITLE --- */
@@ -183,11 +242,13 @@ nav {
   border-bottom: 0.5px solid var(--ColorGrey);
 }
 
-.ItemBack {
+.ItemBackButton {
   float: right;
   height: 30px;
   width: 30px;
   padding-top: 15px;
+  transform: rotate(0deg);
+  animation: Rotate 0.7s ease-in-out forwards;
 }
 
 .ItemCategoryTitle {
@@ -195,6 +256,7 @@ nav {
   font-size: 16px;
   line-height: 1.1;
   padding: 10px 0 0 0;
+  animation: SlideDown 0.7s ease forwards;
 }
 
 #ItemTitlesContainer {
@@ -202,6 +264,7 @@ nav {
   width: 100%;
   font-family: var(--FontLight);
   background-color: var(--ColorBeige);
+  animation: Rise 0.7s ease-in-out forwards;
 }
 
 .ItemSelection {
