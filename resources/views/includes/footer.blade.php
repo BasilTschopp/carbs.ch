@@ -3,11 +3,11 @@
         <div class="NavContainer">
 
             <div class="NavBox">
-                <a href="https://github.com/BasilTschopp/carbs.ch">GITHUB</a>
+                <a href="{{ url('info') }}">INFO</a>
             </div>
 
             <div class="NavBox">
-                <a href="mailto:info@carbs.ch">KONTAKT</a>
+                <a href="{{ url('getCategories') }}">LEBENSMITTEL</a>
             </div>
 
             <div class="NavBox">
