@@ -113,10 +113,10 @@ function CalcItem(ItemID, Size, Factor) {
     var ItemFibers    = ItemData.Fibers;
     var ItemFat       = ItemData.Fat;
     var Unit          = ItemData.Unit;
-    var CalcCarbs     = (Size / 100 * ItemCarbs).toFixed(1);
-    var CalcSugar     = (Size / 100 * ItemSugar).toFixed(1);
-    var CalcFibers    = (Size / 100 * ItemFibers).toFixed(1);
-    var CalcFat       = (Size / 100 * ItemFat).toFixed(1);
+    var CalcCarbs     = (Size / 100 * ItemCarbs).toFixed(0);
+    var CalcSugar     = (Size / 100 * ItemSugar).toFixed(0);
+    var CalcFibers    = (Size / 100 * ItemFibers).toFixed(0);
+    var CalcFat       = (Size / 100 * ItemFat).toFixed(0);
     var OutputUnits   = 'g/' + Size + Unit;
     var SliderFactor  = $("#SliderFactor").val();
     var CalcBolus     = CalcCarbs / 10 * SliderFactor;
