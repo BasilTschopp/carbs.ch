@@ -37,7 +37,7 @@
         <div id='ItemContainerTop'>
 
             <div id='ItemBoxFirst'>
-                <p class='GreyTitle PaddingTopMedium'>Nährwerte</p>
+                <p class='NutritionalValuesTitle'>Nährwerte</p>
                 <p>Kohlenhydrate</p>
                 <p>davon Zucker</p>
                 <p>Nahrungsfasern</p>

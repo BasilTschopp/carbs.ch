@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    $('#ItemSearchInput').on('keyup', SearchItems);
-
     $('#SliderSize, #SliderFactor').change(function() {
 
         var ItemID = $("#ItemID").text();
@@ -85,7 +83,7 @@ function OpenItem(ItemID) {
 
     if (Servings) {
 
-      $("#ItemBoxThird").append("<p class='GreyTitle PaddingTopMedium'>Berechne</p>");
+      $("#ItemBoxThird").append("<p class='NutritionalValuesTitle'>Berechne</p>");
 
       GetServingData(ItemID, function(ServingData) {
 
