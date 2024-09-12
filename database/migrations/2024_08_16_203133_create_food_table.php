@@ -8,6 +8,21 @@ return new class extends Migration {
 
     public function up(): void {
 
+        Schema::create('food_parent_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('ParentCategoryName');
+            $table->integer('Order');
+            $table->integer('Active');
+        });
+
+        Schema::create('food_categories', function (Blueprint $table) {
+            $table->id();
+            $table->integer('ParentID');
+            $table->string('CategoryName');
+            $table->integer('Order');
+            $table->integer('Active');
+        });
+
         Schema::create('food_items', function (Blueprint $table) {
             $table->id();
             $table->integer('CategoryID');
@@ -27,26 +42,58 @@ return new class extends Migration {
             $table->integer('ServingSize');
         });
 
-        Schema::create('food_parent_categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('ParentCategoryName');
-            $table->integer('Order');
-            $table->integer('Active');
-        });
-
-        Schema::create('food_categories', function (Blueprint $table) {
-            $table->id();
-            $table->integer('ParentID');
-            $table->string('CategoryName');
-            $table->integer('Order');
-            $table->integer('Active');
-        });
-
+        $this->ImportFoodParentCategoriesCSV();
+        $this->ImportFoodCategoriesCSV();
         $this->ImportFoodItemsCSV();
         $this->ImportFoodServingsCSV();
-        $this->ImportFoodCategoriesCSV();
 
     }
+
+
+    private function ImportFoodParentCategoriesCSV(): void {
+
+        $csvFilePath = base_path('database/data/food_parent_categories.csv');
+
+        if (($handle = fopen($csvFilePath, 'r')) !== false) {
+
+            fgetcsv($handle); //skip the first line
+
+            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+    
+                DB::table('food_parent_categories')->insert([
+                    'ParentCategoryName' => $data[1],
+                    'Order' => $data[2],
+                    'Active' => $data[3],
+                ]);
+            }
+
+            fclose($handle);
+        }
+    }
+
+
+    private function ImportFoodCategoriesCSV(): void {
+
+        $csvFilePath = base_path('database/data/food_categories.csv');
+
+        if (($handle = fopen($csvFilePath, 'r')) !== false) {
+
+            fgetcsv($handle); //skip the first line
+
+            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+    
+                DB::table('food_categories')->insert([
+                    'ParentID' => $data[1],
+                    'CategoryName' => $data[2],
+                    'Order' => $data[3],
+                    'Active' => $data[4],
+                ]);
+            }
+
+            fclose($handle);
+        }
+    }
+
 
     private function ImportFoodItemsCSV(): void {
 
@@ -75,6 +122,7 @@ return new class extends Migration {
         }
     }
 
+
     private function ImportFoodServingsCSV(): void {
 
         $csvFilePath = base_path('database/data/food_servings.csv');
@@ -95,32 +143,13 @@ return new class extends Migration {
         }
     }
 
-    private function ImportFoodCategoriesCSV(): void {
-
-        $csvFilePath = base_path('database/data/food_categories.csv');
-
-        if (($handle = fopen($csvFilePath, 'r')) !== false) {
-
-            fgetcsv($handle); //skip the first line
-
-            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
-    
-                DB::table('food_categories')->insert([
-                    'ServingName' => $data[1],
-                    'ServingSize' => $data[2],
-                ]);
-            }
-
-            fclose($handle);
-        }
-    }
 
     public function down(): void {
 
-        Schema::dropIfExists('food_items');
-        Schema::dropIfExists('food_servings');
         Schema::dropIfExists('food_parent_categories');
         Schema::dropIfExists('food_categories');
+        Schema::dropIfExists('food_items');
+        Schema::dropIfExists('food_servings');
         
     }
 
