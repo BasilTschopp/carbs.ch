@@ -7,11 +7,11 @@
             </div>
 
             <div class="NavBox">
-                <a href="{{ url('getCategories') }}">LEBENSMITTEL</a>
+                <a href="{{ url('Categories') }}">LEBENSMITTEL</a>
             </div>
 
             <div class="NavBox">
-                <a href="#">LOGIN</a>
+                <a href="#">BLOG</a>
             </div>
 
         </div>
