@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\FoodParentCategories;
-use App\Models\FoodCategories;
+use App\Models\FoodCategoryParent;
+use App\Models\FoodCategoryChild;
 use App\Models\FoodItems;
+use App\Models\Languages;
 
 class FoodController {
 
     public function getCategories() {
 
-        $ParentCategories = FoodParentCategories::with('categories')->get();
+        $ParentCategories = FoodCategoryParent::with('categories')->get();
 
         return view('food/categories', compact('ParentCategories'));
     }
@@ -35,7 +36,6 @@ class FoodController {
         $Item   = FoodItems::getSpecificItem($ItemID);
 
         return view('ajax/food-items', compact('Item'));
-
     }
 
     public function ajaxServings(Request $request) {
@@ -46,6 +46,14 @@ class FoodController {
         $Servings   = FoodItems::getServings($ServingIDs);
         
         return view('ajax/food-servings', compact('Servings'));
-
     }
+
+    public function entryFood() {
+
+        $Categories = FoodItems::getCategories();
+        $Languages  = Languages::getLanguages();
+
+        return view('food/entry_food', compact('Categories', 'Languages'));
+    }
+  
 }

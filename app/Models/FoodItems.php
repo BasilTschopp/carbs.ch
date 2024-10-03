@@ -12,6 +12,19 @@ class FoodItems extends Model {
         return DB::table('food_items')->where('Active', 1)->orderBy('ItemName', 'asc')->get();
     }
 
+    public static function getCategories() {
+        return DB::table('food_category_child as c')
+        ->leftJoin('food_category_parent as p', 'p.ParentID', '=', 'c.ParentID')
+        ->leftJoin('translation_category_child as tc', 'tc.ChildID', '=', 'c.ChildID')
+        ->leftJoin('translation_category_parent as tp', 'tp.ParentID', '=', 'p.ParentID')
+        ->where('tp.LanguageID', 1)
+        ->where('tc.LanguageID', 1)
+        ->orderBy('p.Order', 'asc')
+        ->orderBy('c.Order', 'asc')
+        ->select('c.ChildID', DB::raw('CONCAT(tp.CategoryParentName," - ",tc.CategoryChildName) AS CategoryName'))
+        ->get();
+    }
+
     public static function getItemsByCategory($CategoryID) { 
         return DB::table('food_items')->where('Active', 1)->where('CategoryID', $CategoryID)->orderBy('ItemName', 'asc')->get();
     }

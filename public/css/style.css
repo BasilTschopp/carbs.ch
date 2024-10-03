@@ -339,3 +339,30 @@ nav {
 .ItemSliderBolusContainer {
   text-align: center;
 }
+
+/* --- ITEM INPUT --- */
+
+.InputContainer {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  align-items: center;
+}
+
+.InputLeft {
+  width: 100px;
+  padding: 5px;
+}
+
+.InputRight {
+  flex: 1;
+  width: calc(100% - 110px);
+  padding: 5px;
+}
+
+.InputButton {
+  height: 30px;
+  width: 100%;
+  margin-top: 15px;
+  background-color: var(--ColorGrey);
+}
